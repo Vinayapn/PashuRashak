@@ -1,2 +1,0 @@
-# PashuRashak
-AnimalCareCenter Project
