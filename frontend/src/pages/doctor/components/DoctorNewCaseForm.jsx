@@ -110,7 +110,7 @@ export default function DoctorNewCaseForm({ setTab, cases, setCases, editingCase
                     <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Case Title <span className="text-red-500">*</span></label>
                     <input 
                       required
-                      className="w-full px-5 py-4 bg-gray-50/50 border border-gray-200 rounded-2xl text-base focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none text-gray-800 font-medium transition-all"
+                      className="w-full px-5 py-3 mb-2 bg-gray-50/50 border border-gray-200 rounded-2xl text-base focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none text-gray-800 font-medium transition-all"
                       placeholder="e.g., Severe Dehydration / Leg Fracture"
                       value={formData.title}
                       onChange={(e) => setFormData({...formData, title: e.target.value})}
@@ -122,7 +122,7 @@ export default function DoctorNewCaseForm({ setTab, cases, setCases, editingCase
                       <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Patient Name <span className="text-red-500">*</span></label>
                       <input 
                         required
-                        className="w-full px-5 py-4 bg-gray-50/50 border border-gray-200 rounded-2xl text-base focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none text-gray-800 font-medium transition-all"
+                        className="w-full px-5 py-3 mb-2 bg-gray-50/50 border border-gray-200 rounded-2xl text-base focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none text-gray-700 font-medium transition-all"
                         placeholder="Enter animal name"
                         value={formData.patient}
                         onChange={(e) => setFormData({...formData, patient: e.target.value})}
@@ -131,7 +131,7 @@ export default function DoctorNewCaseForm({ setTab, cases, setCases, editingCase
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Animal Type</label>
                       <select 
-                        className="w-full px-5 py-4 bg-gray-50/50 border border-gray-200 rounded-2xl text-base focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none text-gray-800 font-medium transition-all cursor-pointer"
+                        className="w-full px-5 py-3 mb-2 bg-gray-50/50 border border-gray-200 rounded-2xl text-base focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none text-gray-800 font-medium transition-all cursor-pointer"
                         value={formData.type}
                         onChange={(e) => setFormData({...formData, type: e.target.value})}
                       >
@@ -194,7 +194,7 @@ export default function DoctorNewCaseForm({ setTab, cases, setCases, editingCase
                     <div className="space-y-3">
                       <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Case Status</label>
                       <select 
-                        className="w-full px-5 py-4 bg-gray-50/50 border border-gray-200 rounded-2xl text-base focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none text-gray-800 font-medium transition-all cursor-pointer"
+                        className="w-full px-5 py-3 mb-3 bg-gray-50/50 border border-gray-200 rounded-2xl text-base focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none text-gray-600 font-medium transition-all cursor-pointer"
                         value={formData.status}
                         onChange={(e) => setFormData({...formData, status: e.target.value})}
                       >
@@ -259,7 +259,7 @@ export default function DoctorNewCaseForm({ setTab, cases, setCases, editingCase
               </div>
 
               {/* Guidelines */}
-              <div className="bg-gradient-to-br from-[#2962FF] to-[#1E40AF] p-8 rounded-3xl shadow-xl shadow-blue-500/20 text-white relative overflow-hidden">
+              <div className="bg-gradient-to-br from-[#2962FF] to-[#1E40AF] p-8 mb-3 rounded-3xl shadow-xl shadow-blue-500/20 text-white relative overflow-hidden">
                 <div className="absolute -right-6 -top-6 text-white/10">
                   <Info size={120} />
                 </div>

@@ -6,9 +6,9 @@ export default function DoctorHealthCases({ cases, setCases, setTab, setEditingC
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState('All');
 
-  const filteredCases = cases.filter(c => 
-    (c.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-     c.patient.toLowerCase().includes(searchTerm.toLowerCase())) &&
+  const filteredCases = cases.filter(c =>
+    (c.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      c.patient.toLowerCase().includes(searchTerm.toLowerCase())) &&
     (filterType === 'All' || c.type === filterType)
   );
 
@@ -39,15 +39,15 @@ export default function DoctorHealthCases({ cases, setCases, setTab, setEditingC
         <div className="flex items-center gap-3">
           <div className="relative">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-            <input 
-              type="text" 
+            <input
+              type="text"
               placeholder="Search cases..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 outline-none w-[300px]"
+              className="pl-12 pr-4 py-3 text-black bg-white border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 outline-none w-[300px]"
             />
           </div>
-          <select 
+          <select
             value={filterType}
             onChange={(e) => setFilterType(e.target.value)}
             className="bg-white border border-gray-200 p-3 rounded-xl text-gray-600 hover:bg-gray-50 transition-all shadow-sm outline-none text-sm font-medium"
@@ -58,7 +58,7 @@ export default function DoctorHealthCases({ cases, setCases, setTab, setEditingC
             <option value="Cow">Cow</option>
             <option value="Bird">Bird</option>
           </select>
-          <button 
+          <button
             onClick={handleNewCase}
             className="bg-[#2962FF] hover:bg-[#1E40AF] text-white px-6 py-3 rounded-xl flex items-center gap-2 font-bold transition-all shadow-lg shadow-blue-100"
           >
@@ -109,36 +109,33 @@ export default function DoctorHealthCases({ cases, setCases, setTab, setEditingC
                   </td>
                   <td className="px-8 py-6 text-center">
                     <div className="flex items-center justify-center gap-2">
-                      <span className={`w-2 h-2 rounded-full ${
-                        c.urgency === 'Critical' ? 'bg-red-500' :
-                        c.urgency === 'High' ? 'bg-orange-500' :
-                        c.urgency === 'Medium' ? 'bg-amber-500' : 'bg-emerald-500'
-                      }`}></span>
-                      <span className={`text-xs font-bold ${
-                        c.urgency === 'Critical' ? 'text-red-600' :
-                        c.urgency === 'High' ? 'text-orange-600' :
-                        c.urgency === 'Medium' ? 'text-amber-600' : 'text-emerald-600'
-                      }`}>{c.urgency}</span>
+                      <span className={`w-2 h-2 rounded-full ${c.urgency === 'Critical' ? 'bg-red-500' :
+                          c.urgency === 'High' ? 'bg-orange-500' :
+                            c.urgency === 'Medium' ? 'bg-amber-500' : 'bg-emerald-500'
+                        }`}></span>
+                      <span className={`text-xs font-bold ${c.urgency === 'Critical' ? 'text-red-600' :
+                          c.urgency === 'High' ? 'text-orange-600' :
+                            c.urgency === 'Medium' ? 'text-amber-600' : 'text-emerald-600'
+                        }`}>{c.urgency}</span>
                     </div>
                   </td>
                   <td className="px-8 py-6 text-center">
-                    <span className={`px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest ${
-                      c.status === 'Treating' ? 'bg-blue-100 text-blue-700 border border-blue-200' :
-                      c.status === 'Recovered' ? 'bg-emerald-100 text-emerald-700 border border-emerald-200' :
-                      'bg-gray-100 text-gray-700 border border-gray-200'
-                    }`}>
+                    <span className={`px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest ${c.status === 'Treating' ? 'bg-blue-100 text-blue-700 border border-blue-200' :
+                        c.status === 'Recovered' ? 'bg-emerald-100 text-emerald-700 border border-emerald-200' :
+                          'bg-gray-100 text-gray-700 border border-gray-200'
+                      }`}>
                       {c.status}
                     </span>
                   </td>
                   <td className="px-8 py-6 text-right">
                     <div className="flex items-center justify-end gap-3">
-                      <button 
+                      <button
                         onClick={() => handleEdit(c)}
                         className="p-2 text-gray-400 hover:text-blue-600 transition-colors hover:bg-blue-50 rounded-lg"
                       >
                         <Edit3 size={18} />
                       </button>
-                      <button 
+                      <button
                         onClick={() => handleDelete(c.id)}
                         className="p-2 text-gray-400 hover:text-red-500 transition-colors hover:bg-red-50 rounded-lg"
                       >

@@ -49,7 +49,7 @@ export default function DoctorMedicineStock({ inventory, setInventory, setTab, s
               placeholder="Search inventory..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 outline-none w-[300px]"
+              className="pl-12 pr-4 py-3 text-black bg-white border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 outline-none w-[300px]"
             />
           </div>
           <button 

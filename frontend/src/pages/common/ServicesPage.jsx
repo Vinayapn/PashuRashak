@@ -78,6 +78,12 @@ const ServicesPage = () => {
     }
   ];
 
+  const handleRoleClick = (role) => {
+    // Navigate to register with role pre-selected (if your register page supports query params)
+    // Or just navigate to /register
+    navigate('/register');
+  };
+
   return (
     <div className="min-h-screen bg-gray-950 text-white pt-20 selection:bg-emerald-500/30">
       <Navbar />
@@ -137,18 +143,23 @@ const ServicesPage = () => {
             <p className="text-white/60 text-lg">Each role comes with specialized dashboards and features.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-[1100px] mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-[1100px] mx-auto relative z-20">
             {roles.map((r, i) => (
-              <div key={i} className="bg-gray-950 border border-white/10 p-10 rounded-[40px] text-center group hover:border-white/20 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
-                <div className={`absolute inset-0 bg-gradient-to-b ${r.color} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500`}></div>
+              <div 
+                key={i} 
+                className="bg-gray-950 border border-white/10 p-10 rounded-[40px] text-center group hover:border-white/20 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden z-10"
+              >
+                <div className={`absolute inset-0 bg-gradient-to-b ${r.color} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500 pointer-events-none`}></div>
                 <div className={`w-16 h-16 rounded-[20px] flex items-center justify-center mx-auto mb-8 bg-white/5 text-white transform group-hover:scale-110 transition-transform duration-300 ring-1 ${r.ringColor}`}>
                   {r.icon}
                 </div>
-                <h3 className="text-2xl font-bold mb-4">{r.role}</h3>
-                <p className="text-white/50 mb-10 text-base">{r.desc}</p>
+                <h3 className="text-2xl font-bold mb-4 relative z-10">{r.role}</h3>
+                <p className="text-white/50 mb-10 text-base relative z-10">{r.desc}</p>
                 <button 
-                  className={`${r.color} ${r.hoverColor} text-white px-8 py-4 rounded-2xl font-black text-sm transition-all shadow-xl ${r.shadow} w-full hover:-translate-y-1 active:scale-95`}
-                  onClick={() => navigate('/register')}
+                  type="button"
+                  className={`${r.color} ${r.hoverColor} text-white px-8 py-4 rounded-2xl font-black text-sm transition-all shadow-xl ${r.shadow} w-full hover:-translate-y-1 active:scale-95 relative z-10 cursor-pointer`}
+                  onClick={() => handleRoleClick(r.role)}
+                  onMouseDown={(e) => e.stopPropagation()}
                 >
                   {r.btnText}
                 </button>
